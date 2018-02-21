@@ -1,5 +1,5 @@
 const OAuth = require('oauth');
-const config = require('./keys.json');
+const config = require('../../../settings/keys.json');
 
 var oauth = new OAuth.OAuth(null, null, config.telldusPublicKey, config.telldusPrivateKey, '1.0', null, 'HMAC-SHA1');
 
