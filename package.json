@@ -12,14 +12,15 @@
   "author": "Oscar Tornroth",
   "license": "MIT",
   "dependencies": {
-    "oauth": "^0.9.15",
-    "querystring": "^0.2.0",
     "chai-as-promised": "^7.1.1",
     "commander": "^2.11.0",
     "dateformat": "3.0.2",
     "loglevel": "^1.5.1",
+    "oauth": "^0.9.15",
     "promise": "8.0.1",
+    "querystring": "^0.2.0",
     "request": "2.79.0",
-    "string-similarity": "^1.2.0"
+    "string-similarity": "^1.2.0",
+    "suncalc": "^1.8.0"
   }
 }
