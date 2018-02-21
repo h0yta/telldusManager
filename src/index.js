@@ -1,0 +1,50 @@
+const program = require('commander');
+const log = require('loglevel');
+const stringSimilarity = require('string-similarity');
+const dateFormat = require('dateformat');
+const telldus = require('./telldus');
+
+const init = function () {
+  program
+    .version('0.1.0')
+    .option('-a --action <action>', 'on, off', 'on')
+    .option('-d --device <device>', 'Name of device', 'all')
+    .option('-l --loglevel <loglevel>', 'trace | debug | info | warn | error | silent', /(auto|trace|debug|info|warn|error|silent)/, 'info')
+    .parse(process.argv);
+
+  if (!process.argv.slice(2).length || typeof program.action !== 'string') {
+    program.outputHelp();
+    return;
+  }
+
+  let matches = stringSimilarity.findBestMatch(program.action,
+    ['on', 'off']);
+  if (matches.bestMatch.rating === 1) {
+    setLoglevel(program.loglevel);
+    run(program.action, program.device);
+  } else {
+    log.info(' \'' + program.action + '\' is not a valid action. See --help');
+    log.info(' Did you mean \t\'' + matches.bestMatch.target + '\'');
+  }
+}
+
+const run = function (action, device) {
+  switch (action) {
+    case 'on':
+      telldus.turnOn(device);
+      break;
+    case 'off':
+      telldus.turnOff(device);
+      break;
+  }
+}
+
+const setLoglevel = function (level) {
+  if (level) {
+    log.setLevel(level);
+  } else {
+    log.setLevel('info');
+  }
+}
+
+init();
