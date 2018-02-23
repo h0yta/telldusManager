@@ -1,0 +1,42 @@
+{
+  "night": {
+    "bordslampa vardagsrum": "on",
+    "taklampor hall": "on",
+    "golvlampa gillestuga": "on",
+    "fönsterlampa kök": "on",
+    "vägglampa vardagsrum": "on",
+    "läslampa vardagsrum": "off",
+    "läslampa gillestuga": "off"
+  },
+  "morning": {
+    "fönsterlampa sovrum": "on",
+    "fönsterlampa kök": "on",
+    "taklampor hall": "on",
+    "belysning utomhus": "on"
+  },
+  "movie": {
+    "golvlampa gillestuga": "off",
+    "läslampa vardagsrum": "off",
+    "läslampa gillestuga": "off",
+    "vägglampa vardagsrum": "off"
+  },
+  "tv": {
+    "vägglampa stad": "off",
+    "vägglampa vardagsrum": "off",
+    "läslampa vardagsrum": "off"
+  },
+  "sleep": {
+    "belysning uterum": "off",
+    "bordslampa vardagsrum": "off",
+    "fönsterlampa Alfons": "off",
+    "fönsterlampa kök": "off",
+    "fönsterlampa sovrum": "off",
+    "fönsterlampa Viggo": "off",
+    "golvlampa gillestuga": "off",
+    "läslampa gillestuga": "off",
+    "läslampa vardagsrum": "off",
+    "taklampor hall": "off",
+    "vägglampa stad": "off",
+    "vägglampa vardagsrum": "off"
+  }
+}
