@@ -2,5 +2,8 @@
   "telldusPublicKey": "",
   "telldusPrivateKey": "",
   "telldusToken": "",
-  "telldusTokenSecret": ""
+  "telldusTokenSecret": "",
+  "shlClientId": "",
+  "shlClientSecret": "",
+  "shlUserAgent": ""
 }
