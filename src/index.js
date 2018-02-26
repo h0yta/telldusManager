@@ -4,6 +4,8 @@ const stringSimilarity = require('string-similarity');
 const dateFormat = require('dateformat');
 const telldus = require('./telldus');
 
+var SunCalc = require('suncalc');
+
 const init = function () {
   program
     .version('0.1.0')
@@ -18,7 +20,7 @@ const init = function () {
   }
 
   let matches = stringSimilarity.findBestMatch(program.action,
-    ['on', 'off', 'scene']);
+    ['on', 'off', 'scene', 'sun']);
   if (matches.bestMatch.rating === 1) {
     setLoglevel(program.loglevel);
     run(program.action, program.device);
@@ -40,7 +42,16 @@ const run = function (action, device) {
     case 'scene':
       telldus.scene(device);
       break;
+    case 'sun':
+      sun();
+      break;
   }
+}
+
+const sun = () => {
+  var times = SunCalc.getTimes(new Date(), 57.85, 14.11667);
+  console.log('sunrise', times.sunrise);
+  console.log('sunset', times.sunset);
 }
 
 const setLoglevel = function (level) {

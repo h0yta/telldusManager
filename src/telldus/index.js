@@ -14,7 +14,6 @@ const turnOff = async (input) => {
 }
 
 const scene = async (input) => {
-  console.log('input', input);
   await scenes.create(input);
 }
 

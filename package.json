@@ -21,6 +21,7 @@
     "promise": "8.0.1",
     "querystring": "^0.2.0",
     "request": "2.79.0",
-    "string-similarity": "^1.2.0"
+    "string-similarity": "^1.2.0",
+    "suncalc": "^1.8.0"
   }
 }

@@ -1,4 +1,23 @@
 {
-  "sceneName1": {},
-  "sceneName2": {}
+  "kväll": {
+    "bordslampa vardagsrum": "on",
+    "taklampor hall": "on",
+    "golvlampa gillestuga": "on",
+    "fönsterlampa kök": "on",
+    "vägglampa vardagsrum": "off",
+    "läslampa vardagsrum": "off",
+    "läslampa gillestuga": "off"
+  },
+  "morgon": {
+    "fönsterlampa sovrum": "on",
+    "fönsterlampa kök": "on",
+    "taklampor hall": "on",
+    "belysning utomhus": "on"
+  },
+  "film": {
+    "golvlampa gillestuga": "off",
+    "läslampa vardagsrum": "off",
+    "läslampa gillestuga": "off",
+    "vägglampa vardagsrum": "off"
+  }
 }

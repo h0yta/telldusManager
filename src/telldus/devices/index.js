@@ -12,6 +12,8 @@ const isNumber = (input) => {
 const doesDeviceMatch = (device, input) => {
   if (isNumber(input)) {
     return device.id === input;
+  } else if (input.toUpperCase() === 'ALL') {
+    return true;
   } else {
     return device.name.toLowerCase().indexOf(input.toLowerCase()) > -1;
   }
