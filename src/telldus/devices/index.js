@@ -1,7 +1,7 @@
 const api = require('../api');
 
 const getDevices = async () => {
-  return api.Device.list();
+  return api.device.list();
 }
 
 const isNumber = (input) => {
@@ -24,7 +24,7 @@ const turnOn = async (input) => {
   devices.device
     .filter(device => device.type === 'device')
     .filter(device => doesDeviceMatch(device, input))
-    .map(api.Device.turnOn);
+    .map(api.device.turnOn);
 }
 
 const turnOff = async (input) => {
@@ -32,8 +32,9 @@ const turnOff = async (input) => {
   devices.device
     .filter(device => device.type === 'device')
     .filter(device => doesDeviceMatch(device, input))
-    .map(api.Device.turnOff);
+    .map(api.device.turnOff);
 }
 
+exports.list = getDevices;
 exports.turnOn = turnOn;
 exports.turnOff = turnOff;

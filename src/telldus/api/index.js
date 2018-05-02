@@ -1,3 +1,4 @@
 module.exports = {
-  Device: require('./device')
+  device: require('./device'),
+  sensor: require('./sensor')
 };

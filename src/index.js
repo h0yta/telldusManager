@@ -20,7 +20,7 @@ const init = function () {
   }
 
   let matches = stringSimilarity.findBestMatch(program.action,
-    ['on', 'off', 'scene', 'sun']);
+    ['on', 'off', 'scene', 'temp', 'sun', 'test']);
   if (matches.bestMatch.rating === 1) {
     setLoglevel(program.loglevel);
     run(program.action, program.device);
@@ -31,7 +31,7 @@ const init = function () {
   }
 }
 
-const run = function (action, device) {
+const run = async (action, device) => {
   switch (action) {
     case 'on':
       telldus.turnOn(device);
@@ -42,8 +42,15 @@ const run = function (action, device) {
     case 'scene':
       telldus.scene(device);
       break;
+    case 'temp':
+      let temp = await telldus.temp(device);
+      console.log('temp: ', temp);
+      break;
     case 'sun':
       sun();
+      break;
+    case 'test':
+      test();
       break;
   }
 }

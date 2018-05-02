@@ -2,7 +2,7 @@ const api = require('../api');
 const scenes = require('../../../settings/scenes.json');
 
 const getDevices = async () => {
-  return api.Device.list();
+  return api.device.list();
 }
 
 const resolveScene = (scene) => {
@@ -45,10 +45,10 @@ const addAction = (device, scene) => {
 const turnOnOff = (device) => {
   if (device.action.toUpperCase() === 'ON') {
     console.log('Turn ON:', device.name);
-    api.Device.turnOn(device);
+    api.device.turnOn(device);
   } else if (device.action.toUpperCase() === 'OFF') {
     console.log('Turn OFF:', device.name);
-    api.Device.turnOff(device);
+    api.device.turnOff(device);
   }
 }
 

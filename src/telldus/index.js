@@ -1,8 +1,18 @@
 const devices = require('./devices');
+const sensors = require('./sensors');
 const scenes = require('./scenes');
 
-const getDevices = async () => {
-  return api.Device.list();
+const listDevices = async () => {
+  return devices.list();
+}
+
+const listSensors = async () => {
+  return sensors.list();
+}
+
+const temp = async (input) => {
+  let temp = await sensors.temp(input);
+  return temp;
 }
 
 const turnOn = async (input) => {
@@ -17,6 +27,9 @@ const scene = async (input) => {
   await scenes.create(input);
 }
 
+exports.listDevices = listDevices;
+exports.listSensors = listSensors;
+exports.temp = temp;
 exports.turnOn = turnOn;
 exports.turnOff = turnOff;
 exports.scene = scene;
