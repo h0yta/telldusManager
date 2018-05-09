@@ -1,8 +1,9 @@
 const program = require('commander');
 const log = require('loglevel');
 const stringSimilarity = require('string-similarity');
-const dateFormat = require('dateformat');
 const telldus = require('./telldus');
+const dateFormat = require('dateformat');
+
 
 var SunCalc = require('suncalc');
 
@@ -57,8 +58,10 @@ const run = async (action, device) => {
 
 const sun = () => {
   var times = SunCalc.getTimes(new Date(), 57.85, 14.11667);
-  console.log('sunrise', times.sunrise);
-  console.log('sunset', times.sunset);
+  let sunrise = dateFormat(times.sunrise, "HH:MM:ss");
+  let sunset = dateFormat(times.sunset, "HH:MM:ss");
+  console.log('sunrise', sunrise);
+  console.log('sunset', sunset);
 }
 
 const setLoglevel = function (level) {
