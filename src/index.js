@@ -21,7 +21,7 @@ const init = function () {
   }
 
   let matches = stringSimilarity.findBestMatch(program.action,
-    ['on', 'off', 'scene', 'temp', 'sun', 'test']);
+    ['on', 'off', 'scene', 'temp', 'sun', 'test', 'text']);
   if (matches.bestMatch.rating === 1) {
     setLoglevel(program.loglevel);
     run(program.action, program.device);
@@ -46,6 +46,9 @@ const run = async (action, device) => {
     case 'temp':
       let temp = await telldus.temp(device);
       console.log('temp: ', temp);
+      break;
+    case 'text':
+      telldus.sendText("oscar", "TEST TEST");
       break;
     case 'sun':
       sun();

@@ -1,6 +1,7 @@
 const devices = require('./devices');
 const sensors = require('./sensors');
 const scenes = require('./scenes');
+const phones = require('./phones');
 
 const listDevices = async () => {
   return devices.list();
@@ -27,9 +28,14 @@ const scene = async (input) => {
   await scenes.create(input);
 }
 
+const sendText = async (input, message) => {
+  await phones.sendText(input, message);
+}
+
 exports.listDevices = listDevices;
 exports.listSensors = listSensors;
 exports.temp = temp;
 exports.turnOn = turnOn;
 exports.turnOff = turnOff;
 exports.scene = scene;
+exports.sendText = sendText;
