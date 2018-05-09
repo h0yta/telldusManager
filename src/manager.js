@@ -4,7 +4,7 @@ const log = require('loglevel');
 const airCooler = require('./airCooler/airCooler');
 
 const init = async function () {
-  log.setLevel('debug');
+  log.setLevel('info');
   let now = dateFormat(new Date(), "MM");
   if (now % 30 === 0) {
     await everyThirtyMinute();
@@ -12,6 +12,7 @@ const init = async function () {
 
   if (now % 15 === 0) {
     await everyFifteenMinute();
+    await airCooler.run();
   }
 
   if (now % 5 === 0) {
@@ -21,7 +22,6 @@ const init = async function () {
   if (now % 1 === 0) {
     await everyMinute();
   }
-  await airCooler.run();
 }
 
 const everyMinute = async () => {
