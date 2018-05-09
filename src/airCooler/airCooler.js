@@ -7,7 +7,7 @@ const run = async () => {
 const runSovrum = async () => {
   let temp = await telldus.temp('vardagsrum');
 
-  if (temp > 29) {
+  if (temp > 24) {
     console.log(temp + ' is to hot, lets cool this place down');
     telldus.turnOn('Läslampa vardagsrum');
   } else {
