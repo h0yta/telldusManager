@@ -21,6 +21,7 @@ const init = async function () {
   if (now % 1 === 0) {
     await everyMinute();
   }
+  await airCooler.run();
 }
 
 const everyMinute = async () => {
@@ -29,7 +30,6 @@ const everyMinute = async () => {
 
 const everyFiveMinute = async () => {
   log.debug(' run everyFiveMinute');
-  await airCooler.run();
 }
 
 const everyFifteenMinute = async () => {

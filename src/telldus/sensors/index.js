@@ -1,4 +1,3 @@
-const Promise = require('Promise');
 const api = require('../api');
 
 const getSensors = async () => {
