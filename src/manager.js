@@ -1,7 +1,8 @@
 const dateFormat = require('dateformat');
 const log = require('loglevel');
 
-const airCooler = require('./airCooler/airCooler');
+const airCooler = require('./plugins/airCooler');
+const airDryer = require('./plugins/airDryer');
 
 const init = async function () {
   log.setLevel('info');
@@ -12,7 +13,6 @@ const init = async function () {
 
   if (now % 15 === 0) {
     await everyFifteenMinute();
-    await airCooler.run();
   }
 
   if (now % 5 === 0) {
@@ -25,19 +25,20 @@ const init = async function () {
 }
 
 const everyMinute = async () => {
-  log.debug(' run everyMinute');
+
 }
 
 const everyFiveMinute = async () => {
-  log.debug(' run everyFiveMinute');
+
 }
 
 const everyFifteenMinute = async () => {
-  log.debug(' run everyFifteenMinute');
+  await airCooler.run();
+  await airDryer.run();
 }
 
 const everyThirtyMinute = async () => {
-  log.debug(' run everyThirtyMinute');
+
 }
 
 init();

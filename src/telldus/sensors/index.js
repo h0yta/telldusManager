@@ -38,6 +38,26 @@ const temp = async (input) => {
     .pop();
 }
 
+const humidity = async (input) => {
+  let sensors = await getSensors();
+  let filteredSensors = sensors.sensor
+    .filter(sensor => doesDeviceMatch(sensor, input));
+
+  if (filteredSensors.length > 1) {
+    console.error('To many matches for sensor:', input);
+    return;
+  }
+
+  let infos = await Promise.all(filteredSensors.map(async (sensor) => {
+    const info = await api.sensor.info(sensor);
+    console.log(info);
+    return info;
+  }));
+
+  return infos.map(info => getValue(info.data, 'humidity'))
+    .pop();
+}
+
 const getValue = (data, name) => {
   return data.filter(da => da.name === name)
     .map(da => da.value)
@@ -46,3 +66,4 @@ const getValue = (data, name) => {
 
 exports.list = getSensors;
 exports.temp = temp;
+exports.humidity = humidity;

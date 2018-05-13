@@ -16,6 +16,11 @@ const temp = async (input) => {
   return temp;
 }
 
+const humidity = async (input) => {
+  let humidity = await sensors.humidity(input);
+  return humidity;
+}
+
 const turnOn = async (input) => {
   await devices.turnOn(input);
 }
@@ -35,6 +40,7 @@ const sendText = async (input, message) => {
 exports.listDevices = listDevices;
 exports.listSensors = listSensors;
 exports.temp = temp;
+exports.humidity = humidity;
 exports.turnOn = turnOn;
 exports.turnOff = turnOff;
 exports.scene = scene;
