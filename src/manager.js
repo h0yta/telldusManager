@@ -6,9 +6,11 @@ const airCooler = require('./plugins/airCooler');
 const airDryer = require('./plugins/airDryer');
 
 const init = async function () {
-  log.setLevel('info');
-  let now = dateFormat(new Date(), "MM");
   let settings = getSettings();
+  log.setLevel(settings.logLevel);
+  log.debug('LogLevel set to -> ', settings.logLevel);
+
+  let now = dateFormat(new Date(), "MM");
 
   if (now % 30 === 0) {
     await everyThirtyMinute(settings);
@@ -49,7 +51,7 @@ const getSettings = () => {
 }
 
 const setSettings = (settings) => {
-  fs.writeFileSync('./settings/manager.json', JSON.stringify(settings, null, 2));
+  fs.writeFileSync('./settings/manager.json', JSON.stringify(settings, null, 4));
 }
 
 init();

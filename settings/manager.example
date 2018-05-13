@@ -1,10 +1,17 @@
 {
+    "logLevel": "info",
     "airCooler": {
         "threshold": 22,
-        "status": "off"
+        "status": "on",
+        "notify": [
+            "johnDoe"
+        ]
     },
     "airDryer": {
         "threshold": 45,
-        "status": "off"
+        "status": "on",
+        "notify": [
+            "johnDoe"
+        ]
     }
 }

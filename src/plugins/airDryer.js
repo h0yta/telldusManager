@@ -1,5 +1,5 @@
 const telldus = require('../telldus');
-const settings = require('../../settings/manager.json');
+const log = require('loglevel');
 
 const run = async (settings) => {
   let result = await runHobbyrum(settings);
@@ -10,17 +10,17 @@ const runHobbyrum = async (settings) => {
   let humidity = await telldus.humidity('hobbyrum');
 
   if (humidity >= settings.threshold && settings.status === 'off') {
-    console.log(humidity + ' is to damp, lets dehumidify this place');
+    log.debug(humidity + ' is to damp, lets dehumidify this place');
     telldus.turnOn('Avfuktare hobbyrum');
-    telldus.sendText("oscar", "Avfuktare PÅ");
+    telldus.sendTexts(settings.notify, "Avfuktare PÅ");
     return 'on';
   } else if (humidity < settings.threshold && settings.status === 'on') {
-    console.log(humidity + ' is not to damp');
+    log.debug(humidity + ' is not to damp');
     telldus.turnOff('Avfuktare hobbyrum');
-    telldus.sendText("oscar", "Avfuktare AV");
+    telldus.sendTexts(settings.notify, "Avfuktare AV");
     return 'off';
   } else {
-    console.log('Humidity unchanged');
+    log.debug('Humidity unchanged');
     return settings.status;
   }
 }

@@ -37,6 +37,12 @@ const sendText = async (input, message) => {
   await phones.sendText(input, message);
 }
 
+const sendTexts = async (inputs, message) => {
+  await Promise.all(inputs.map(async (input) => {
+    await phones.sendText(input, message);
+  }));
+}
+
 exports.listDevices = listDevices;
 exports.listSensors = listSensors;
 exports.temp = temp;
@@ -45,3 +51,4 @@ exports.turnOn = turnOn;
 exports.turnOff = turnOff;
 exports.scene = scene;
 exports.sendText = sendText;
+exports.sendTexts = sendTexts;
