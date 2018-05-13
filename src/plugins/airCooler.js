@@ -9,10 +9,10 @@ const runSovrum = async () => {
 
   if (temp > 24) {
     console.log(temp + ' is to hot, lets cool this place down');
-    telldus.turnOn('Läslampa vardagsrum');
+    //telldus.turnOn('Cooling fan sovrum');
   } else {
     console.log(temp + ' is cool enough');
-    telldus.turnOff('Läslampa vardagsrum');
+    //telldus.turnOff('Cooling fan sovrum');
   }
 }
 
