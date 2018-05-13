@@ -23,12 +23,12 @@ const init = async function () {
 }
 
 const getSettings = () => {
-  let data = fs.readFileSync('./settings/manager.json', 'utf8');
+  let data = fs.readFileSync(__dirname + '/../settings/manager.json', 'utf8');
   return JSON.parse(data);
 }
 
 const setSettings = (settings) => {
-  fs.writeFileSync('./settings/manager.json', JSON.stringify(settings, null, 4));
+  fs.writeFileSync(__dirname + '/../settings/manager.json', JSON.stringify(settings, null, 4));
 }
 
 init();
