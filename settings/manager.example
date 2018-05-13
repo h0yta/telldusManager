@@ -1,17 +1,23 @@
 {
-    "logLevel": "info",
-    "airCooler": {
-        "threshold": 22,
-        "status": "on",
-        "notify": [
-            "johnDoe"
-        ]
-    },
-    "airDryer": {
-        "threshold": 45,
-        "status": "on",
-        "notify": [
-            "johnDoe"
-        ]
-    }
+    "logLevel": "debug",
+    "plugins": [
+        {
+            "name": "airCooler",
+            "runEvery": 1,
+            "threshold": 22,
+            "status": "on",
+            "notify": [
+                "johnDoe"
+            ]
+        },
+        {
+            "name": "airDryer",
+            "runEvery": 1,
+            "threshold": 45,
+            "status": "on",
+            "notify": [
+                "johnDoe"
+            ]
+        }
+    ]
 }

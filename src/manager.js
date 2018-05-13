@@ -11,38 +11,15 @@ const init = async function () {
   log.debug('LogLevel set to -> ', settings.logLevel);
 
   let now = dateFormat(new Date(), "MM");
+  let runnablePlugins = settings.plugins
+    .filter(plugin => now % plugin.runEvery === 0);
 
-  if (now % 30 === 0) {
-    await everyThirtyMinute(settings);
-  }
-
-  if (now % 15 === 0) {
-    await everyFifteenMinute(settings);
-  }
-
-  if (now % 5 === 0) {
-    await everyFiveMinute(settings);
-  }
-
-  if (now % 1 === 0) {
-    await everyMinute(settings);
-  }
+  await Promise.all(runnablePlugins.map(async (plugin) => {
+    let exe = require('./plugins/' + plugin.name);
+    plugin.status = await exe.run(plugin);
+  }));
 
   setSettings(settings);
-}
-
-const everyMinute = async (settings) => {
-}
-
-const everyFiveMinute = async (settings) => {
-}
-
-const everyFifteenMinute = async (settings) => {
-  settings.airCooler.status = await airCooler.run(settings.airCooler);
-  settings.airDryer.status = await airDryer.run(settings.airDryer);
-}
-
-const everyThirtyMinute = async (settings) => {
 }
 
 const getSettings = () => {
