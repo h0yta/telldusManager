@@ -58,3 +58,4 @@ typings/
 .env
 
 keys.json
+manager.json

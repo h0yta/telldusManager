@@ -1,0 +1,10 @@
+{
+    "airCooler": {
+        "threshold": 22,
+        "status": "off"
+    },
+    "airDryer": {
+        "threshold": 45,
+        "status": "off"
+    }
+}

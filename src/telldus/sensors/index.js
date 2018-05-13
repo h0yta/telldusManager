@@ -50,7 +50,6 @@ const humidity = async (input) => {
 
   let infos = await Promise.all(filteredSensors.map(async (sensor) => {
     const info = await api.sensor.info(sensor);
-    console.log(info);
     return info;
   }));
 
