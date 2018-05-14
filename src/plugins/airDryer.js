@@ -2,11 +2,6 @@ const telldus = require('../telldus');
 const log = require('loglevel');
 
 const run = async (settings) => {
-  let result = await runHobbyrum(settings);
-  return result;
-}
-
-const runHobbyrum = async (settings) => {
   let humidity = await telldus.humidity(settings.sensorDevice);
 
   if (humidity >= settings.threshold && settings.status === 'off') {

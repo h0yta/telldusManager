@@ -2,11 +2,6 @@ const telldus = require('../telldus');
 const log = require('loglevel');
 
 const run = async (settings) => {
-  let result = await runSovrum(settings);
-  return result;
-}
-
-const runSovrum = async (settings) => {
   let temp = await telldus.temp(settings.sensorDevice);
 
   if (temp >= settings.threshold && settings.status === 'off') {
