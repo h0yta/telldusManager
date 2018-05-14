@@ -7,20 +7,20 @@ const run = async (settings) => {
 }
 
 const runSovrum = async (settings) => {
-  let temp = await telldus.temp('gillestuga');
+  let temp = await telldus.temp(settings.sensorDevice);
 
   if (temp >= settings.threshold && settings.status === 'off') {
     log.debug(temp + ' is to hot, lets cool this place down');
-    //telldus.turnOn('Cooling fan sovrum');
-    //telldus.sendText(settings.notify, "Kylfläkt PÅ");
+    //telldus.turnOn(settings.device);
+    //telldus.sendText(settings.notify, settings.device + " PÅ");
     return 'on';
   } else if (temp < settings.threshold && settings.status === 'on') {
     log.debug(temp + ' is cool enough');
-    //telldus.turnOff('Cooling fan sovrum');
-    //telldus.sendText(settings.notify, "Kylfläkt AV");
+    //telldus.turnOff(settings.device);
+    //telldus.sendText(settings.notify, settings.device + " AV");
     return 'off';
   } else {
-    log.debug('Temperature unchanged');
+    log.debug('Temperature still ' + temp);
     return settings.status;
   }
 }

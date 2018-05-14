@@ -7,20 +7,20 @@ const run = async (settings) => {
 }
 
 const runHobbyrum = async (settings) => {
-  let humidity = await telldus.humidity('hobbyrum');
+  let humidity = await telldus.humidity(settings.sensorDevice);
 
   if (humidity >= settings.threshold && settings.status === 'off') {
     log.debug(humidity + ' is to damp, lets dehumidify this place');
-    telldus.turnOn('Avfuktare hobbyrum');
-    telldus.sendTexts(settings.notify, "Avfuktare PÅ");
+    telldus.turnOn(settings.device);
+    telldus.sendTexts(settings.notify, settings.device + " PÅ");
     return 'on';
   } else if (humidity < settings.threshold && settings.status === 'on') {
     log.debug(humidity + ' is not to damp');
-    telldus.turnOff('Avfuktare hobbyrum');
-    telldus.sendTexts(settings.notify, "Avfuktare AV");
+    telldus.turnOff(settings.device);
+    telldus.sendTexts(settings.notify, settings.device + " AV");
     return 'off';
   } else {
-    log.debug('Humidity unchanged');
+    log.debug('Humidity still ' + humidity);
     return settings.status;
   }
 }
