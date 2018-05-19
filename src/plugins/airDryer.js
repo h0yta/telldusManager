@@ -4,7 +4,7 @@ const log = require('loglevel');
 const run = async (settings) => {
   let humidity = await telldus.humidity(settings.sensorDevice);
 
-  if (humidity >= settings.threshold && settings.status === 'off') {
+  if (humidity > settings.threshold && settings.status === 'off') {
     log.debug(humidity + ' is to damp, lets dehumidify this place');
     telldus.turnOn(settings.device);
     telldus.sendTexts(settings.notify, settings.device + " PÅ");

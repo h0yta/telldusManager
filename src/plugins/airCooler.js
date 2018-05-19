@@ -4,7 +4,7 @@ const log = require('loglevel');
 const run = async (settings) => {
   let temp = await telldus.temp(settings.sensorDevice);
 
-  if (temp >= settings.threshold && settings.status === 'off') {
+  if (temp > settings.threshold && settings.status === 'off') {
     log.debug(temp + ' is to hot, lets cool this place down');
     //telldus.turnOn(settings.device);
     //telldus.sendText(settings.notify, settings.device + " PÅ");
