@@ -26,7 +26,7 @@ const run = async (settings) => {
         telldus.turnOff(settings.device);
         telldus.sendTexts(settings.notify, settings.device + " AV");
       }
-      return 'on';
+      return 'off';
     }
   }
 
