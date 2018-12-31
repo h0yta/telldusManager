@@ -4,19 +4,43 @@
         {
             "name": "airCooler",
             "runEvery": 1,
+            "sensorDevice": "sovrum",
             "threshold": 22,
-            "status": "on",
+            "workingHours": {
+                "start": "18:00",
+                "stop": "22:00"
+            },
+            "device": "Flakt sovrum",
+            "status": "off",
+            "notify": []
+        },
+        {
+            "name": "airDryer",
+            "runEvery": 10,
+            "sensorDevice": "hobbyrum",
+            "threshold": 55,
+            "device": "Avfuktare hobbyrum",
+            "status": "off",
             "notify": [
                 "johnDoe"
             ]
         },
         {
-            "name": "airDryer",
-            "runEvery": 1,
-            "threshold": 45,
-            "status": "on",
+            "name": "temperateStatistics",
+            "runEvery": 10,
+            "sensorDevice": "gillestuga"
+        },
+        {
+            "name": "temperateStatistics",
+            "runEvery": 10,
+            "sensorDevice": "sovrum"
+        },
+        {
+            "name": "doorBell",
+            "runEvery": 5,
+            "threshold": 120,
+            "device": "rrplingare",
             "notify": [
-                "johnDoe"
             ]
         }
     ]

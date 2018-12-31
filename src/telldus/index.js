@@ -21,6 +21,10 @@ const humidity = async (input) => {
   return humidity;
 }
 
+const lastAction = async (input, timeframe) => {
+  return await devices.lastAction(input, timeframe);
+}
+
 const turnOn = async (input) => {
   await devices.turnOn(input);
 }
@@ -47,6 +51,7 @@ exports.listDevices = listDevices;
 exports.listSensors = listSensors;
 exports.temp = temp;
 exports.humidity = humidity;
+exports.lastAction = lastAction;
 exports.turnOn = turnOn;
 exports.turnOff = turnOff;
 exports.scene = scene;

@@ -58,7 +58,8 @@ const run = async (action, device) => {
       sun();
       break;
     case 'test':
-      test();
+      let last = await telldus.lastAction('rrplingare', 45);
+      console.log(last);
       break;
   }
 }

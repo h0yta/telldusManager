@@ -58,15 +58,10 @@ function turnOff(device) {
  * @returns {*} a Promise
  */
 function history(device, from, to) {
-  return api.request('/device/history?' + querystring.stringify({ id: device.id || device, from: from, to: to }));
+  return api.request('/device/history?' + querystring.stringify({ id: device.id || device, from: from, to: to, lastFirst: true }));
 }
 
 module.exports.list = list;
 module.exports.turnOn = turnOn;
 module.exports.turnOff = turnOff;
-module.exports.info = info;
-    /*info: info,
-    dim: dim,
-    turnOn: turnOn,
-    turnOff: turnOff,
-    history: history*/
+module.exports.history = history;
