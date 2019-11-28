@@ -21,7 +21,7 @@ const run = async (settings) => {
 
     if (now < start || now > stop) {
       log.debug('Outside working hours');
-      if (settings.status === 'on') {
+      if (settings.state === 'on') {
         log.debug('Turn OFF');
         telldus.turnOff(settings.device);
         telldus.sendTexts(settings.notify, settings.device + " AV");
@@ -30,19 +30,19 @@ const run = async (settings) => {
     }
   }
 
-  if (temp > settings.threshold && settings.status === 'off') {
+  if (temp > settings.threshold && settings.state === 'off') {
     log.debug(temp + ' is to hot, lets cool this place down');
     telldus.turnOn(settings.device);
     telldus.sendTexts(settings.notify, settings.device + " PÅ");
     return 'on';
-  } else if (temp < settings.threshold && settings.status === 'on') {
+  } else if (temp < settings.threshold && settings.state === 'on') {
     log.debug(temp + ' is cool enough');
     telldus.turnOff(settings.device);
     telldus.sendTexts(settings.notify, settings.device + " AV");
     return 'off';
   } else {
     log.debug('Temperature still ' + temp);
-    return settings.status;
+    return settings.state;
   }
 }
 

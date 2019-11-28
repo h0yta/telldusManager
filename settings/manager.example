@@ -11,7 +11,7 @@
                 "stop": "22:00"
             },
             "device": "Flakt sovrum",
-            "status": "off",
+            "state": "off",
             "notify": []
         },
         {
@@ -20,7 +20,7 @@
             "sensorDevice": "hobbyrum",
             "threshold": 55,
             "device": "Avfuktare hobbyrum",
-            "status": "off",
+            "state": "off",
             "notify": [
                 "johnDoe"
             ]
@@ -40,6 +40,14 @@
             "runEvery": 5,
             "threshold": 120,
             "device": "rrplingare",
+            "notify": [
+            ]
+        },
+        {
+            "name": "shl",
+            "runEvery": 1,
+            
+            "device": "Läslampa gillestuga",
             "notify": [
             ]
         }
